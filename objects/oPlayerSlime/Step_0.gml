@@ -30,6 +30,7 @@ switch(state)
 		}
 		if(global.move_down)
 		{
+			//y += 4
 			state = PLAYER_STATE.CROUCHING
 		    sprite_index = sSlime_Crouch
 			break;
@@ -67,6 +68,7 @@ switch(state)
 		}
 		if(global.move_down)
 		{
+			y += 4
 			state = PLAYER_STATE.CROUCHEDWALKING
 			break;
 		}
@@ -96,14 +98,14 @@ switch(state)
 	}
 	case PLAYER_STATE.CROUCHING:
 	{
-		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
 			state = PLAYER_STATE.FALLING
 			break;
-		}
+		}*/
 		show_debug_message(image_index)
 		if(image_index >= 3)
 		{
@@ -113,14 +115,14 @@ switch(state)
 	}
 	case PLAYER_STATE.CROUCHED:
 	{
-		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
 			state = PLAYER_STATE.FALLING
 			break;
-		}
+		}*/
 		sprite_index = sSlime_Crouched
 		if(global.move_down)
 		{
@@ -129,6 +131,7 @@ switch(state)
 				state = PLAYER_STATE.CROUCHEDWALKING;
 				image_xscale = 1;
 				xspd = SLIMESPEED
+				y += 4
 				break;
 			}
 			if(global.move_left)
@@ -136,6 +139,8 @@ switch(state)
 				state = PLAYER_STATE.CROUCHEDWALKING;
 				image_xscale = -1
 				xspd = -SLIMESPEED
+				
+				y += 4
 				break;
 			}
 		}
@@ -149,26 +154,28 @@ switch(state)
 	}
 	case PLAYER_STATE.CROUCHEDWALKING:
 	{
-		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
 			state = PLAYER_STATE.FALLING
 			break;
-		}
+		}*/
 		if(global.move_down)
 		{
 			if(!global.move_right and !global.move_left)
 			{
 				state = PLAYER_STATE.CROUCHED
 				xspd = 0
+				y -= 4
 				break;
 			}
 			if((global.move_right and image_xscale == -1) or (global.move_left and image_xscale == 1))
 			{
 				state = PLAYER_STATE.CROUCHED
 				xspd = 0
+				y -= 4
 				break;
 			}
 		}
@@ -176,9 +183,24 @@ switch(state)
 		{
 			state = PLAYER_STATE.IDLE
 			xspd = 0
+			y -= 4
 			break;
 		}
 		sprite_index = sSlime_CrouchWalk
+		if(collision_rectangle(x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)), y - (CROUCHEDSLIMEHEIGHT / 2),
+		                       x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)) + xspd, y + (CROUCHEDSLIMEHEIGHT / 2),
+			  				   oBarrier, false, false))
+		{
+			while(!collision_rectangle(x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)), y - (CROUCHEDSLIMEHEIGHT / 2),
+		                               x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2) + 1), y + (CROUCHEDSLIMEHEIGHT / 2),
+							           oBarrier, false, false))
+			{
+				x += (sign(xspd) * 1)
+			}
+			state = PLAYER_STATE.CROUCHED
+			xspd = 0
+			break;
+		}
 		x += xspd
 		break;
 	}

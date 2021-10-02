@@ -1,5 +1,5 @@
 {
-  "name": "LevelAssets01",
+  "name": "LevelAssets32x32",
   "spriteId": {
     "name": "Sprite8",
     "path": "sprites/Sprite8/Sprite8.yy",

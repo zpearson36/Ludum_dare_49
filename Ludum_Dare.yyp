@@ -2,8 +2,9 @@
   "resources": [
     {"id":{"name":"sSlime_Idle","path":"sprites/sSlime_Idle/sSlime_Idle.yy",},"order":2,},
     {"id":{"name":"sBarrier","path":"sprites/sBarrier/sBarrier.yy",},"order":1,},
+    {"id":{"name":"LevelAssets16x16","path":"tilesets/LevelAssets16x16/LevelAssets16x16.yy",},"order":1,},
     {"id":{"name":"oBarrier","path":"objects/oBarrier/oBarrier.yy",},"order":5,},
-    {"id":{"name":"LevelAssets01","path":"tilesets/LevelAssets01/LevelAssets01.yy",},"order":0,},
+    {"id":{"name":"LevelAssets32x32","path":"tilesets/LevelAssets32x32/LevelAssets32x32.yy",},"order":0,},
     {"id":{"name":"oController","path":"objects/oController/oController.yy",},"order":4,},
     {"id":{"name":"oPlayerSlime","path":"objects/oPlayerSlime/oPlayerSlime.yy",},"order":0,},
     {"id":{"name":"oMainMenuButton","path":"objects/oMainMenuButton/oMainMenuButton.yy",},"order":1,},
