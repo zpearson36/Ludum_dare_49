@@ -6,6 +6,14 @@ switch(state)
 	{
 		xspd = 0
 		sprite_index = sSlime_Idle
+		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
+			  				    oBarrier, false, false))
+		{
+			yspd = 3
+			state = PLAYER_STATE.FALLING
+			break;
+		}
 		if(global.move_right)
 		{
 			state = PLAYER_STATE.WALKING;
@@ -36,6 +44,14 @@ switch(state)
 	}
 	case PLAYER_STATE.WALKING:
 	{
+		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
+			  				    oBarrier, false, false))
+		{
+			yspd = 3
+			state = PLAYER_STATE.FALLING
+			break;
+		}
 		if(!global.move_right and !global.move_left)
 		{
 			state = PLAYER_STATE.IDLE
@@ -65,6 +81,14 @@ switch(state)
 	}
 	case PLAYER_STATE.CROUCHING:
 	{
+		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
+			  				    oBarrier, false, false))
+		{
+			yspd = 3
+			state = PLAYER_STATE.FALLING
+			break;
+		}
 		show_debug_message(image_index)
 		if(image_index >= 3)
 		{
@@ -74,6 +98,14 @@ switch(state)
 	}
 	case PLAYER_STATE.CROUCHED:
 	{
+		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
+			  				    oBarrier, false, false))
+		{
+			yspd = 3
+			state = PLAYER_STATE.FALLING
+			break;
+		}
 		sprite_index = sSlime_Crouched
 		if(global.move_down)
 		{
@@ -102,6 +134,14 @@ switch(state)
 	}
 	case PLAYER_STATE.CROUCHEDWALKING:
 	{
+		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
+			  				    oBarrier, false, false))
+		{
+			yspd = 3
+			state = PLAYER_STATE.FALLING
+			break;
+		}
 		if(global.move_down)
 		{
 			if(!global.move_right and !global.move_left)
@@ -138,5 +178,34 @@ switch(state)
 		x += xspd
 		break;
 	}
-	
+	case PLAYER_STATE.FALLING:
+	{
+		sprite_index = sSlime_Falling
+		if(collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		                       x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + yspd,
+							   oBarrier, false, false))
+	    {
+			while(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
+		                               x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
+							           oBarrier, false, false))
+			{
+				y += 1
+			}
+			image_index = 0
+			state = PLAYER_STATE.LANDING
+			break;
+		}
+		y += yspd
+		break;
+	}
+	case PLAYER_STATE.LANDING:
+	{
+		sprite_index = sSlime_Landing
+		if(image_index >= 3)
+		{
+			state = PLAYER_STATE.IDLE
+			break;
+		}
+		break;
+	}
 }

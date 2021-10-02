@@ -7,8 +7,11 @@ enum PLAYER_STATE
 	CROUCHING       = 2,
 	CROUCHED        = 3,
 	CROUCHEDWALKING = 4,
-	JUMPING         = 5
+	JUMPING         = 5,
+	FALLING         = 6,
+	LANDING         = 7
 }
 
 state = PLAYER_STATE.IDLE
 xspd = 0
+yspd = 0

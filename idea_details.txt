@@ -7,3 +7,5 @@
    - various forms allow for different abilities - initial form simple run and
      jump, insect-like form can crawl on walls and ceilings, gas-bag form can
      float, etc - but each form has their weaknesses as well.
+   - Player needs to collect resource to maintain form (All forms or just
+     advanced forms?)

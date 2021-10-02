@@ -1,1 +1,3 @@
-#macro SLIMESPEED 2
+#macro SLIMESPEED   2
+#macro SLIMEWIDTH  33
+#macro SLIMEHEIGHT 22
