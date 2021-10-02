@@ -44,6 +44,7 @@ switch(state)
 	}
 	case PLAYER_STATE.WALKING:
 	{
+		
 		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
@@ -76,6 +77,20 @@ switch(state)
 			break;
 		}
 		sprite_index = sSlime_Walk
+		if(collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2),
+		                       x + (sign(xspd) * (SLIMEWIDTH / 2)) + xspd, y + (SLIMEHEIGHT / 2),
+			  				   oBarrier, false, false))
+		{
+			while(!collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2),
+		                               x + (sign(xspd) * (SLIMEWIDTH / 2) + 1), y + (SLIMEHEIGHT / 2),
+							           oBarrier, false, false))
+			{
+				x += (sign(xspd) * 1)
+			}
+			state = PLAYER_STATE.IDLE
+			xspd = 0
+			break;
+		}
 		x += xspd
 		break;
 	}
@@ -170,9 +185,9 @@ switch(state)
 	case PLAYER_STATE.JUMPING:
 	{
 		sprite_index = sSlime_Jumping
-		if(image_index >= 10)
+		if(image_index >= 5)
 		{
-			state = PLAYER_STATE.IDLE
+			state = PLAYER_STATE.FALLING
 			break;
 		}
 		x += xspd
@@ -181,6 +196,18 @@ switch(state)
 	case PLAYER_STATE.FALLING:
 	{
 		sprite_index = sSlime_Falling
+		if(collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2),
+		                       x + (sign(xspd) * (SLIMEWIDTH / 2)) + xspd, y + (SLIMEHEIGHT / 2),
+			  				   oBarrier, false, false))
+		{
+			while(!collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2),
+		                               x + (SLIMEWIDTH / 2) + (sign(xspd) * 1), y + (SLIMEHEIGHT / 2),
+							           oBarrier, false, false))
+			{
+				x += (sign(xspd) * 1)
+			}
+			xspd = 0
+		}
 		if(collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                       x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + yspd,
 							   oBarrier, false, false))
@@ -196,6 +223,7 @@ switch(state)
 			break;
 		}
 		y += yspd
+		x += xspd
 		break;
 	}
 	case PLAYER_STATE.LANDING:
