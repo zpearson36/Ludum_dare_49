@@ -1,10 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
+show_debug_message(takeoverable)
 switch state
 {
 	case SMOKESTATES.IDLE:
 	{
 		current_direction = DIRECTIONS.MOTIONLESS
+		if(global.move_action and takeoverable != noone)
+		{
+			
+			with(oPlayer)
+			{
+			    new_form(other.takeoverable)
+			}
+		}
 		if(global.move_up)
 		{
 			yspd = -SMOKESPEED
@@ -54,7 +63,6 @@ switch state
 			yspd = 0
 			break;
 		}
-		
 		x += xspd
 		y += yspd
 	}

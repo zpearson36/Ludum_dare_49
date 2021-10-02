@@ -18,5 +18,6 @@ enum DIRECTIONS
 state = SMOKESTATES.IDLE
 xspd = 0
 yspd = 0
-image_blend = c_yellow
+c_color = c_yellow
 current_direction = DIRECTIONS.MOTIONLESS
+takeoverable = noone

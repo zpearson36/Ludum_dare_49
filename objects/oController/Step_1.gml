@@ -20,7 +20,15 @@ if(keyboard_check(vk_down)
 {
 	global.move_down = true
 }
-if(keyboard_check(vk_space))
+if(keyboard_check(vk_shift))
 {
 	global.move_jump = true
+}
+if(keyboard_check(vk_space))
+{
+	global.move_action = true
+}
+if(keyboard_check(ord("R")))
+{
+	game_restart()
 }

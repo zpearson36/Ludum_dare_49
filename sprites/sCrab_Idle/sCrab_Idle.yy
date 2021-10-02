@@ -41,7 +41,7 @@
     "spriteId": {"name":"sCrab_Idle","path":"sprites/sCrab_Idle/sCrab_Idle.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 10.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

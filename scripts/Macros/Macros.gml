@@ -8,3 +8,4 @@
 #macro CRABSPEED           SLIMESPEED
 #macro FALLINGSPEED                 3
 #macro SMOKESPEED          SLIMESPEED
+#macro SMOKEWIDTH                  32
