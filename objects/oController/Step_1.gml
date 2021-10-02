@@ -20,3 +20,7 @@ if(keyboard_check(vk_down)
 {
 	global.move_down = true
 }
+if(keyboard_check(vk_space))
+{
+	global.move_jump = true
+}

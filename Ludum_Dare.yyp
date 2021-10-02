@@ -11,6 +11,7 @@
     {"id":{"name":"Macros","path":"scripts/Macros/Macros.yy",},"order":0,},
     {"id":{"name":"rMainMenu","path":"rooms/rMainMenu/rMainMenu.yy",},"order":2,},
     {"id":{"name":"sSlime_Crouch","path":"sprites/sSlime_Crouch/sSlime_Crouch.yy",},"order":4,},
+    {"id":{"name":"sSlime_Jumping","path":"sprites/sSlime_Jumping/sSlime_Jumping.yy",},"order":5,},
     {"id":{"name":"sSlime_Crouched","path":"sprites/sSlime_Crouched/sSlime_Crouched.yy",},"order":0,},
     {"id":{"name":"sSlime_Walk","path":"sprites/sSlime_Walk/sSlime_Walk.yy",},"order":3,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},

@@ -4,3 +4,4 @@ global.move_left  = false
 global.move_right = false
 global.move_up    = false
 global.move_down  = false
+global.move_jump  = false

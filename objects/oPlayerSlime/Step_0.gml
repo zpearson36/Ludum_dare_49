@@ -4,6 +4,7 @@ switch(state)
 {
 	case PLAYER_STATE.IDLE:
 	{
+		xspd = 0
 		sprite_index = sSlime_Idle
 		if(global.move_right)
 		{
@@ -25,6 +26,12 @@ switch(state)
 		    sprite_index = sSlime_Crouch
 			break;
 		}
+		if(global.move_jump)
+		{
+			state = PLAYER_STATE.JUMPING;
+			image_index = 0
+			break;
+		}
 		break;
 	}
 	case PLAYER_STATE.WALKING:
@@ -44,6 +51,12 @@ switch(state)
 		if(global.move_down)
 		{
 			state = PLAYER_STATE.CROUCHEDWALKING
+			break;
+		}
+		if(global.move_jump)
+		{
+			state = PLAYER_STATE.JUMPING;
+			image_index = 0
 			break;
 		}
 		sprite_index = sSlime_Walk
@@ -93,13 +106,13 @@ switch(state)
 		{
 			if(!global.move_right and !global.move_left)
 			{
-				state = PLAYER_STATE.CROUCH
+				state = PLAYER_STATE.CROUCHED
 				xspd = 0
 				break;
 			}
 			if((global.move_right and image_xscale == -1) or (global.move_left and image_xscale == 1))
 			{
-				state = PLAYER_STATE.CROUCH
+				state = PLAYER_STATE.CROUCHED
 				xspd = 0
 				break;
 			}
@@ -111,6 +124,17 @@ switch(state)
 			break;
 		}
 		sprite_index = sSlime_CrouchWalk
+		x += xspd
+		break;
+	}
+	case PLAYER_STATE.JUMPING:
+	{
+		sprite_index = sSlime_Jumping
+		if(image_index >= 10)
+		{
+			state = PLAYER_STATE.IDLE
+			break;
+		}
 		x += xspd
 		break;
 	}
