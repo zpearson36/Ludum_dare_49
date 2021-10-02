@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-show_debug_message(image_angle)
+//show_debug_message(image_angle)
+//show_debug_message(sign(xspd))
+//show_debug_message(state)
 switch state
 {
 	case CRAB_STATE.IDLE:
@@ -34,17 +36,29 @@ switch state
 	}
 	case CRAB_STATE.WALKING:
 	{
+		//To detect ledges, begin wall climb instead of fall
 		if(!collision_rectangle(x - (CRABWIDTH / 2), y + (CRABHEIGHT / 2),
 		                        x + (CRABWIDTH / 2), y + (CRABHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
-			/*yspd = 3
-			state = CRAB_STATE.FALLING*/
+			show_debug_message("Ledge")
 			image_angle -= (sign(xspd) * 90)
 			y += CRABWIDTH
 			state = CRAB_STATE.CLIMBINGWALLIDLE
 			break;
 		}
+		
+		//To detect walls, begin wall climb instead of stopping
+		if(collision_rectangle(x + (sign(xspd) * (CRABWIDTH / 2)), y - (CRABHEIGHT / 2) + 5,
+		                       x + (sign(xspd) * ((CRABWIDTH / 2) + 1)), y + (CRABHEIGHT / 2) - 5,
+			  				   oBarrier, false, false))
+		{
+			show_debug_message("WALL")
+			image_angle += (sign(xspd) * 90)
+			state = CRAB_STATE.CLIMBINGWALLIDLE
+			break;
+		}
+		
 		if(!global.move_right and !global.move_left)
 		{
 			state = CRAB_STATE.IDLE
@@ -80,12 +94,18 @@ switch state
 		                       x + (CRABWIDTH / 2), y + (CRABHEIGHT / 2) + yspd,
 							   oBarrier, false, false))
 	    {
-			while(!collision_rectangle(x - (CRABWIDTH / 2), y + (CRABHEIGHT / 2),
-		                               x + (CRABWIDTH / 2), y + (CRABHEIGHT / 2) + 1,
-							           oBarrier, false, false))
+			var tmp = true
+			while(tmp)
 			{
 				y += 1
+				if(collision_rectangle(x - (CRABWIDTH / 2) + 5, y + (CRABHEIGHT / 2),
+		                               x + (CRABWIDTH / 2) - 5, y + (CRABHEIGHT / 2),
+					                   oBarrier, false, false))
+			    {
+					tmp = false
+				}
 			}
+			show_debug_message(yspd)
 			image_index = 0
 			state = CRAB_STATE.IDLE
 			break;
@@ -124,25 +144,54 @@ switch state
 		
 		var tmp_rot = 1
 		if(image_angle == -90 || image_angle == 270) tmp_rot = -1
+		//To detect ledges, begin ceiling climb or idle instead of fall
 		if(!collision_rectangle(x + (tmp_rot * (CRABWIDTH / 2)), y - (CRABHEIGHT / 2),
 		                        x + (tmp_rot * ((CRABWIDTH / 2) + 5)), y + (CRABHEIGHT / 2),
 			  				    oBarrier, false, false))
 		{
-			/*yspd = 3
-			state = CRAB_STATE.FALLING*/
 			image_angle += (tmp_rot * sign(xspd) * 90)
 			if(abs(image_angle) == 360) image_angle = 0
 			x += (tmp_rot * CRABWIDTH)
 			if(image_angle == 0)
 			{
-				state = CRAB_STATE.IDLE
+				show_debug_message(1)
+				state = CRAB_STATE.FALLING
+				xspd = 0;
+				yspd = FALLINGSPEED
+				break;
 			}
 			else
 			{
 			    state = CRAB_STATE.CLIMBINGCEILINGIDLE
+				break;
 			}
 			break;
 		}
+		
+		//To detect bounderies, begin ceiling climb or idle instead of stall
+		if(collision_rectangle(x - (CRABWIDTH / 2) + 5, y + (sign(xspd) * (CRABHEIGHT / 2)),
+		                       x + (CRABWIDTH / 2) - 5, y + (sign(xspd) * ((CRABHEIGHT / 2) + 5)),
+			  				   oBarrier, false, false))
+		{
+			image_angle -= (tmp_rot * sign(xspd) * 90)
+			if(abs(image_angle) == 360) image_angle = 0
+			//x += (tmp_rot * CRABWIDTH)
+			if(image_angle == 0)
+			{
+				show_debug_message(2)
+				state = CRAB_STATE.FALLING
+				xspd = 0;
+				yspd = FALLINGSPEED
+				break;
+			}
+			else
+			{
+			    state = CRAB_STATE.CLIMBINGCEILINGIDLE
+				break
+			}
+			break;
+		}
+		
 		if(!global.move_up and !global.move_down)
 		{
 			state = CRAB_STATE.CLIMBINGWALLIDLE
@@ -185,12 +234,24 @@ switch state
 	}
 	case CRAB_STATE.CLIMBINGCEILINGWALKING:
 	{
+		//Code to switch to wall climbing in case of ledge encounter
 		if(!collision_rectangle(x - (CRABWIDTH / 2), y - (CRABHEIGHT / 2),
 		                        x + (CRABWIDTH / 2), y - (CRABHEIGHT / 2) - 5,
 			  				    oBarrier, false, false))
 		{
 			image_angle += (sign(xspd) * 90)
 			y -= CRABWIDTH
+			state = CRAB_STATE.CLIMBINGWALLIDLE
+			break;
+		}
+		
+		//code to switch to wall climbing incase of wall encounter
+		if(collision_rectangle(x + (sign(xspd) * (CRABWIDTH / 2)), y - (CRABHEIGHT / 2) + 5,
+		                       x + (sign(xspd) * (CRABWIDTH / 2) + 1), y + (CRABHEIGHT / 2) - 5,
+	                           oBarrier, false, false))
+		{
+			image_angle -= (sign(xspd) * 90)
+			//y += CRABWIDTH
 			state = CRAB_STATE.CLIMBINGWALLIDLE
 			break;
 		}
