@@ -6,3 +6,4 @@
 #macro CRABWIDTH                   32
 #macro CRABHEIGHT                  32
 #macro CRABSPEED           SLIMESPEED
+#macro FALLINGSPEED                 3

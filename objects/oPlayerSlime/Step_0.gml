@@ -10,7 +10,7 @@ switch(state)
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
-			yspd = 3
+			yspd = FALLINGSPEED
 			state = SLIME_STATE.FALLING
 			break;
 		}
@@ -50,7 +50,7 @@ switch(state)
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
-			yspd = 3
+			yspd = FALLINGSPEED
 			state = SLIME_STATE.FALLING
 			break;
 		}

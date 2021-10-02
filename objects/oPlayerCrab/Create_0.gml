@@ -2,11 +2,13 @@
 // You can write your code in this editor
 enum CRAB_STATE
 {
-	IDLE            = 0,
-	WALKING         = 1,
-	FALLING         = 2,
-	CLIMBINGWALL    = 3,
-	CLIMBINGCEILING = 4
+	IDLE                   = 0,
+	WALKING                = 1,
+	FALLING                = 2,
+	CLIMBINGWALLIDLE       = 3,
+	CLIMBINGWALLWALKING    = 4,
+	CLIMBINGCEILINGIDLE    = 5,
+	CLIMBINGCEILINGWALKING = 6
 }
 
 state = CRAB_STATE.IDLE
