@@ -4,8 +4,9 @@ enum PLAYER_STATE
 {
 	IDLE            = 0,
 	WALKING         = 1,
-	CROUCH          = 2,
-	CROUCHEDWALKING = 3
+	CROUCHING       = 2,
+	CROUCHED        = 3,
+	CROUCHEDWALKING = 4
 	
 }
 

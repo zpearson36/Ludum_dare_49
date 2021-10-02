@@ -21,9 +21,8 @@ switch(state)
 		}
 		if(global.move_down)
 		{
-			state = PLAYER_STATE.CROUCH
+			state = PLAYER_STATE.CROUCHING
 		    sprite_index = sSlime_Crouch
-			alarm[0] = 4
 			break;
 		}
 		break;
@@ -51,9 +50,18 @@ switch(state)
 		x += xspd
 		break;
 	}
-	case PLAYER_STATE.CROUCH:
+	case PLAYER_STATE.CROUCHING:
 	{
-		
+		show_debug_message(image_index)
+		if(image_index >= 3)
+		{
+			state = PLAYER_STATE.CROUCHED
+		}
+		break;
+	}
+	case PLAYER_STATE.CROUCHED:
+	{
+		sprite_index = sSlime_Crouched
 		if(global.move_down)
 		{
 			if(global.move_right)
