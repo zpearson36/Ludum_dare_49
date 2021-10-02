@@ -1,6 +1,27 @@
  - Puzzle Platformer where environmental factors causes the player character to
    change form/function, changing the players characters abilities and
    behaviors
+   - Player starts as sentient cloud
+   - sentient cloud can take control of other beings, but only temperarily
+     (unstable connection prevents permanent control)
+   - While a cloud, player cannot interact with environment - ie, cant open
+     doors, cant push buttons, etc
+   - Slime can create copies of itself and fit in tight spaces
+   - Crab can attack if necessary and climb up walls
+   - BONUS IF TIME ALLOWS
+      - Add scientists as enemies/bystanders
+      - Scientists  will react to player based on form
+         - Cloud, no reaction or run away
+         - Slime, try to capture
+         - Crab, try to attack
+      - Can take over scientists to blend in
+      - Scientists of keycards for special doors
+
+
+
+
+
+OLD:
    - Player plays an artificial life form created in a lab. The life forms
      physical form is unstable and prone to change given environmental factors
    - Life form wants freedom and must attempt to escape the lab

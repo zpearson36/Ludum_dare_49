@@ -7,3 +7,4 @@
 #macro CRABHEIGHT                  32
 #macro CRABSPEED           SLIMESPEED
 #macro FALLINGSPEED                 3
+#macro SMOKESPEED          SLIMESPEED
