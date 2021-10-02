@@ -1,0 +1,9 @@
+ - Puzzle Platformer where environmental factors causes the player character to
+   change form/function, changing the players characters abilities and
+   behaviors
+   - Player plays an artificial life form created in a lab. The life forms
+     physical form is unstable and prone to change given environmental factors
+   - Life form wants freedom and must attempt to escape the lab
+   - various forms allow for different abilities - initial form simple run and
+     jump, insect-like form can crawl on walls and ceilings, gas-bag form can
+     float, etc - but each form has their weaknesses as well.

@@ -1,0 +1,24 @@
+ - Puzzle Platformer where environmental factors causes the player character to
+   change form/function, changing the players characters abilities and
+   behaviors
+   - Player plays an artificial life form created in a lab. The life forms
+     physical form is unstable and prone to change given environmental factors
+   - Life form wants freedom and must attempt to escape the lab
+   - various forms allow for different abilities - initial form simple run and
+     jump, insect-like form can crawl on walls and ceilings, gas-bag form can
+     float, etc - but each form has their weaknesses as well.
+
+ - base building/ farming game where player starts in a stable environment but
+   must be careful not to disturb the world around them too much while
+   attempting to survive, or could cause catastrophic ecosystem collapse
+   - Not necessarily an "Earth" farm. Could be some alien environment where
+     environmental pressures cause immediate feedback
+   - Game would ultimately be a "Spreadsheet" Game, where the player
+     manipulates certain variables in the "table" and other values change as a
+     result
+   - Player needs resources to build/maintain homestead/base.
+   - Amount of resources available in environment affect amount of wild life
+     which in turn affects the amount of resources (I.E. Number of trees
+     affects the number of animal A, which affects the number of animal B, which in
+     turn affects the number of trees)
+   - Potentially too complex and time consuming. Possibly a non-jam project

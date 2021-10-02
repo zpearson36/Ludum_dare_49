@@ -1,0 +1,42 @@
+Theme: Unstable
+
+ - Platformer where player cannot stay in one place for long
+
+ - Game where Ball is initially at rest in a stable position, but alterations
+   to the environment cause it to become unstable and require the player to
+   react in some way to get the ball back into a stable position
+
+ - A game where each of the players inputs causes the game itself to become
+   increasingly unstable, require player to solve puzzle in as few inputs as
+   possible
+
+ - A game where the player must try to prevent an 'usntable' character from
+   losing their cool - avoid stressful situations
+
+ - a game where the player must try to get an 'unstable' character to lose
+   their cool - induce stressful situations
+
+ - A game where the player removes horses from a stable
+
+ - Dialogue based game where the player must interact with some entity
+   (Person, AI, Alien, Eldrich Horror?) and try to keep them from losing their
+   cool. Additional mechanic could be that then player must also monitor their
+   own stress during the exchange (More stressed player is fewer 'good path'
+   options?)
+
+ - Puzzle Platformer where environmental factors causes the player character to
+   change form/function, changing the players characters abilities and
+   behaviors
+
+ - action adventure with similar premise as above
+
+ - action adventure where the world map is facing imminent collapse and player
+   must rush around and attempt to prevent disaster
+
+ - base building/ farming game where player starts in a stable environment but
+   must be careful not to disturb the world around them too much while
+   attempting to survive, or could cause catastrophic ecosystem collapse
+
+ - Game set in nuclear reactor, player must prevent meltdown
+
+ - Game set in nuclear reactor, player must attempt to cause a meltdown
