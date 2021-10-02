@@ -7,6 +7,10 @@ switch state
 {
 	case CRAB_STATE.IDLE:
 	{
+		if(global.move_leave)
+		{
+			oPlayer.leave_form()
+		}
 		xspd = 0
 		sprite_index = sCrab_Idle
 		if(!collision_rectangle(x - (CRABWIDTH / 2), y + (CRABHEIGHT / 2),

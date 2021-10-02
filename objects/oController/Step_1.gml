@@ -28,6 +28,10 @@ if(keyboard_check(vk_space))
 {
 	global.move_action = true
 }
+if(keyboard_check(ord("Q")))
+{
+    global.move_leave  = true
+}
 if(keyboard_check(ord("R")))
 {
 	game_restart()

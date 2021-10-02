@@ -11,7 +11,8 @@ enum SLIME_STATE
 	FALLING         = 6,
 	LANDING         = 7
 }
-
+in_tight_spot = false
+form_type = oSlime
 state = SLIME_STATE.IDLE
 xspd = 0
 yspd = 0

@@ -10,7 +10,7 @@ enum CRAB_STATE
 	CLIMBINGCEILINGIDLE    = 5,
 	CLIMBINGCEILINGWALKING = 6
 }
-
+form_type = oCrab
 state = CRAB_STATE.IDLE
 xspd = 0
 yspd = 0

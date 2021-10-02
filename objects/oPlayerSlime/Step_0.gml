@@ -4,6 +4,10 @@ switch(state)
 {
 	case SLIME_STATE.IDLE:
 	{
+		if(global.move_leave)
+		{
+			oPlayer.leave_form()
+		}
 		xspd = 0
 		sprite_index = sSlime_Idle
 		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
@@ -98,14 +102,7 @@ switch(state)
 	}
 	case SLIME_STATE.CROUCHING:
 	{
-		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
-		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
-			  				    oBarrier, false, false))
-		{
-			yspd = 3
-			state = SLIME_STATE.FALLING
-			break;
-		}*/
+		
 		show_debug_message(image_index)
 		if(image_index >= 3)
 		{
@@ -115,16 +112,15 @@ switch(state)
 	}
 	case SLIME_STATE.CROUCHED:
 	{
-		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
-		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
-			  				    oBarrier, false, false))
-		{
-			yspd = 3
-			state = SLIME_STATE.FALLING
-			break;
-		}*/
 		sprite_index = sSlime_Crouched
-		if(global.move_down)
+		in_tight_spot = false
+		if(collision_rectangle(x - (SLIMEWIDTH / 2) + 5, y - (SLIMEHEIGHT / 2),
+		                       x + (SLIMEWIDTH / 2) - 5, y - (SLIMEHEIGHT / 2),
+			  				   oBarrier, false, false))
+		{
+			in_tight_spot = true
+		}
+		if(global.move_down or in_tight_spot)
 		{
 			if(global.move_right)
 			{
@@ -146,6 +142,7 @@ switch(state)
 		}
 		else
 		{
+			if(in_tight_spot) break;
 			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
@@ -154,15 +151,14 @@ switch(state)
 	}
 	case SLIME_STATE.CROUCHEDWALKING:
 	{
-		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
-		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
-			  				    oBarrier, false, false))
+		in_tight_spot = false
+		if(collision_rectangle(x - (SLIMEWIDTH / 2) + 5, y - (SLIMEHEIGHT / 2),
+		                       x + (SLIMEWIDTH / 2) - 5, y - (SLIMEHEIGHT / 2),
+			  				   oBarrier, false, false))
 		{
-			yspd = 3
-			state = SLIME_STATE.FALLING
-			break;
-		}*/
-		if(global.move_down)
+			in_tight_spot = true
+		}
+		if(global.move_down or in_tight_spot)
 		{
 			if(!global.move_right and !global.move_left)
 			{
@@ -181,6 +177,7 @@ switch(state)
 		}
 		else
 		{
+			if(in_tight_spot) break;
 			state = SLIME_STATE.IDLE
 			xspd = 0
 			y -= 4

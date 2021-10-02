@@ -48,7 +48,7 @@ switch state
 	{
 		if(!global.move_right and !global.move_left and !global.move_up and !global.move_down)
 		{
-			state = SLIME_STATE.IDLE
+			state = SMOKESTATES.IDLE
 			xspd = 0
 			yspd = 0
 			break;
@@ -58,9 +58,37 @@ switch state
 		or (global.move_up    and current_direction != DIRECTIONS.UP)
 		or (global.move_down  and current_direction != DIRECTIONS.DOWN))
 		{
-			state = SLIME_STATE.IDLE
+			state = SMOKESTATES.IDLE
 			xspd = 0
 			yspd = 0
+			break;
+		}
+		if(!just_created and collision_rectangle(x + (sign(xspd) * (SMOKEWIDTH / 2)), y - (SMOKEWIDTH / 2),
+		                       x + (sign(xspd) * (SMOKEWIDTH / 2)) + xspd, y + (SMOKEWIDTH / 2),
+			  				   oBarrier, false, false))
+		{
+			while(!collision_rectangle(x + (sign(xspd) * (SMOKEWIDTH / 2)), y - (SMOKEWIDTH / 2),
+		                               x + (sign(xspd) * (SMOKEWIDTH / 2) + 1), y + (SMOKEWIDTH / 2),
+							           oBarrier, false, false))
+			{
+				x += (sign(xspd) * 1)
+			}
+			state = SMOKESTATES.IDLE
+			xspd = 0
+			break;
+		}
+		if(!just_created and collision_rectangle(x - (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2),
+		                       x + (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2) + yspd,
+							   oBarrier, false, false))
+	    {
+			while(!collision_rectangle(x - (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2),
+		                               x + (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2) + 1,
+							           oBarrier, false, false))
+			{
+				y += 1
+			}
+			image_index = 0
+			state = SMOKESTATES.IDLE
 			break;
 		}
 		x += xspd

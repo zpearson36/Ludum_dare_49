@@ -6,3 +6,4 @@ global.move_up     = false
 global.move_down   = false
 global.move_jump   = false
 global.move_action = false
+global.move_leave  = false

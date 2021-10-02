@@ -21,3 +21,4 @@ yspd = 0
 c_color = c_yellow
 current_direction = DIRECTIONS.MOTIONLESS
 takeoverable = noone
+just_created = true
