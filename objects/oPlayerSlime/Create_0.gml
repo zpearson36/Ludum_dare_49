@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-enum PLAYER_STATE
+enum SLIME_STATE
 {
 	IDLE            = 0,
 	WALKING         = 1,
@@ -12,6 +12,6 @@ enum PLAYER_STATE
 	LANDING         = 7
 }
 
-state = PLAYER_STATE.IDLE
+state = SLIME_STATE.IDLE
 xspd = 0
 yspd = 0

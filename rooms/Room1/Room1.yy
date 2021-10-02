@@ -3,7 +3,7 @@
   "volume": 1.0,
   "parentRoom": null,
   "views": [
-    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":889,"hview":500,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":444,"vborder":250,"hspeed":-1,"vspeed":-1,"objectId":{"name":"oPlayerSlime","path":"objects/oPlayerSlime/oPlayerSlime.yy",},},
+    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":889,"hview":500,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":444,"vborder":250,"hspeed":-1,"vspeed":-1,"objectId":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
     {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
     {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
@@ -14,8 +14,8 @@
   ],
   "layers": [
     {"instances":[
-        {"properties":[],"isDnd":false,"objectId":{"name":"oPlayerSlime","path":"objects/oPlayerSlime/oPlayerSlime.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":320.0,"y":192.0,"resourceVersion":"1.0","name":"inst_30FEA904","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oController","path":"objects/oController/oController.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-64.0,"y":288.0,"resourceVersion":"1.0","name":"inst_3EA8B9A0","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":134.0,"y":144.0,"resourceVersion":"1.0","name":"inst_349B5CFB","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"oBarrier","path":"objects/oBarrier/oBarrier.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":28.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":288.0,"resourceVersion":"1.0","name":"inst_289ABB9C","tags":[],"resourceType":"GMRInstance",},
@@ -81,9 +81,9 @@
 525,526,527,528,529,530,531,532,533,534,535,536,537,538,525,526,527,528,529,530,531,532,533,534,535,536,537,525,526,527,528,529,530,525,526,527,528,529,530,531,532,533,534,
 560,561,562,563,564,565,566,567,568,569,570,571,560,561,562,563,564,565,566,567,568,569,570,571,560,561,562,563,564,565,566,567,568,569,570,571,560,561,562,563,564,565,566,
 595,596,597,598,599,600,601,602,603,604,605,606,595,596,597,598,599,600,601,602,603,604,605,606,595,596,597,598,599,600,601,602,603,604,605,606,595,596,597,598,599,600,601,
-630,631,632,633,634,635,636,637,638,639,640,641,630,70,71,72,73,635,636,637,638,639,640,641,630,631,632,633,634,635,636,637,638,639,640,641,630,631,632,633,634,635,636,
-665,666,667,668,669,670,671,672,673,674,675,676,665,105,106,107,108,670,671,672,673,674,675,676,665,666,667,668,669,670,671,672,673,674,675,676,665,666,667,668,669,670,671,
-700,701,702,703,704,705,706,707,708,709,710,711,700,140,141,142,143,705,706,707,708,709,710,711,700,701,702,703,704,705,706,707,708,709,710,711,700,701,702,703,704,705,706,
+630,631,632,633,634,635,636,637,638,639,640,641,630,70,71,633,634,635,636,637,638,639,640,641,630,631,632,633,634,635,636,637,638,639,640,641,630,631,632,633,634,635,636,
+665,666,667,668,669,670,671,672,673,674,675,676,665,105,106,668,669,670,671,672,673,674,675,676,665,666,667,668,669,670,671,672,673,674,675,676,665,666,667,668,669,670,671,
+700,701,702,703,704,705,706,707,708,709,710,711,700,140,141,142,704,705,706,707,708,709,710,711,700,701,702,703,704,705,706,707,708,709,710,711,700,701,702,703,704,705,706,
 700,701,702,703,704,705,706,707,708,709,710,711,700,175,176,177,178,705,706,707,708,709,710,711,700,701,702,703,704,705,706,707,708,709,710,711,700,701,702,703,704,705,706,
 735,736,737,738,739,740,741,742,743,744,745,746,735,736,737,738,739,740,741,742,743,744,745,746,735,736,737,738,739,740,741,742,743,219,217,218,210,211,212,213,214,215,216,
 455,456,457,458,459,460,461,462,463,464,465,466,467,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,754,755,753,754,755,753,252,253,245,246,247,248,249,250,251,
@@ -108,7 +108,6 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_30FEA904","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_3EA8B9A0","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_289ABB9C","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_289FD15D","path":"rooms/Room1/Room1.yy",},
@@ -117,6 +116,7 @@
     {"name":"inst_1E89015E","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_43021AC1","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_797B44AC","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_349B5CFB","path":"rooms/Room1/Room1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

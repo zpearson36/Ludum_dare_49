@@ -2,7 +2,7 @@
 // You can write your code in this editor
 switch(state)
 {
-	case PLAYER_STATE.IDLE:
+	case SLIME_STATE.IDLE:
 	{
 		xspd = 0
 		sprite_index = sSlime_Idle
@@ -11,19 +11,19 @@ switch(state)
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
-			state = PLAYER_STATE.FALLING
+			state = SLIME_STATE.FALLING
 			break;
 		}
 		if(global.move_right)
 		{
-			state = PLAYER_STATE.WALKING;
+			state = SLIME_STATE.WALKING;
 			image_xscale = 1;
 			xspd = SLIMESPEED
 			break;
 		}
 		if(global.move_left)
 		{
-			state = PLAYER_STATE.WALKING;
+			state = SLIME_STATE.WALKING;
 			image_xscale = -1
 			xspd = -SLIMESPEED
 			break;
@@ -31,19 +31,19 @@ switch(state)
 		if(global.move_down)
 		{
 			//y += 4
-			state = PLAYER_STATE.CROUCHING
+			state = SLIME_STATE.CROUCHING
 		    sprite_index = sSlime_Crouch
 			break;
 		}
 		if(global.move_jump)
 		{
-			state = PLAYER_STATE.JUMPING;
+			state = SLIME_STATE.JUMPING;
 			image_index = 0
 			break;
 		}
 		break;
 	}
-	case PLAYER_STATE.WALKING:
+	case SLIME_STATE.WALKING:
 	{
 		
 		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
@@ -51,30 +51,30 @@ switch(state)
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
-			state = PLAYER_STATE.FALLING
+			state = SLIME_STATE.FALLING
 			break;
 		}
 		if(!global.move_right and !global.move_left)
 		{
-			state = PLAYER_STATE.IDLE
+			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
 		}
 		if((global.move_right and image_xscale == -1) or (global.move_left and image_xscale == 1))
 		{
-			state = PLAYER_STATE.IDLE
+			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
 		}
 		if(global.move_down)
 		{
 			y += 4
-			state = PLAYER_STATE.CROUCHEDWALKING
+			state = SLIME_STATE.CROUCHEDWALKING
 			break;
 		}
 		if(global.move_jump)
 		{
-			state = PLAYER_STATE.JUMPING;
+			state = SLIME_STATE.JUMPING;
 			image_index = 0
 			break;
 		}
@@ -89,38 +89,38 @@ switch(state)
 			{
 				x += (sign(xspd) * 1)
 			}
-			state = PLAYER_STATE.IDLE
+			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
 		}
 		x += xspd
 		break;
 	}
-	case PLAYER_STATE.CROUCHING:
+	case SLIME_STATE.CROUCHING:
 	{
 		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
-			state = PLAYER_STATE.FALLING
+			state = SLIME_STATE.FALLING
 			break;
 		}*/
 		show_debug_message(image_index)
 		if(image_index >= 3)
 		{
-			state = PLAYER_STATE.CROUCHED
+			state = SLIME_STATE.CROUCHED
 		}
 		break;
 	}
-	case PLAYER_STATE.CROUCHED:
+	case SLIME_STATE.CROUCHED:
 	{
 		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
-			state = PLAYER_STATE.FALLING
+			state = SLIME_STATE.FALLING
 			break;
 		}*/
 		sprite_index = sSlime_Crouched
@@ -128,7 +128,7 @@ switch(state)
 		{
 			if(global.move_right)
 			{
-				state = PLAYER_STATE.CROUCHEDWALKING;
+				state = SLIME_STATE.CROUCHEDWALKING;
 				image_xscale = 1;
 				xspd = SLIMESPEED
 				y += 4
@@ -136,7 +136,7 @@ switch(state)
 			}
 			if(global.move_left)
 			{
-				state = PLAYER_STATE.CROUCHEDWALKING;
+				state = SLIME_STATE.CROUCHEDWALKING;
 				image_xscale = -1
 				xspd = -SLIMESPEED
 				
@@ -146,34 +146,34 @@ switch(state)
 		}
 		else
 		{
-			state = PLAYER_STATE.IDLE
+			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
 		}
 		break;
 	}
-	case PLAYER_STATE.CROUCHEDWALKING:
+	case SLIME_STATE.CROUCHEDWALKING:
 	{
 		/*if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
 			yspd = 3
-			state = PLAYER_STATE.FALLING
+			state = SLIME_STATE.FALLING
 			break;
 		}*/
 		if(global.move_down)
 		{
 			if(!global.move_right and !global.move_left)
 			{
-				state = PLAYER_STATE.CROUCHED
+				state = SLIME_STATE.CROUCHED
 				xspd = 0
 				y -= 4
 				break;
 			}
 			if((global.move_right and image_xscale == -1) or (global.move_left and image_xscale == 1))
 			{
-				state = PLAYER_STATE.CROUCHED
+				state = SLIME_STATE.CROUCHED
 				xspd = 0
 				y -= 4
 				break;
@@ -181,7 +181,7 @@ switch(state)
 		}
 		else
 		{
-			state = PLAYER_STATE.IDLE
+			state = SLIME_STATE.IDLE
 			xspd = 0
 			y -= 4
 			break;
@@ -197,25 +197,25 @@ switch(state)
 			{
 				x += (sign(xspd) * 1)
 			}
-			state = PLAYER_STATE.CROUCHED
+			state = SLIME_STATE.CROUCHED
 			xspd = 0
 			break;
 		}
 		x += xspd
 		break;
 	}
-	case PLAYER_STATE.JUMPING:
+	case SLIME_STATE.JUMPING:
 	{
 		sprite_index = sSlime_Jumping
 		if(image_index >= 5)
 		{
-			state = PLAYER_STATE.FALLING
+			state = SLIME_STATE.FALLING
 			break;
 		}
 		x += xspd
 		break;
 	}
-	case PLAYER_STATE.FALLING:
+	case SLIME_STATE.FALLING:
 	{
 		sprite_index = sSlime_Falling
 		if(collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2),
@@ -241,19 +241,19 @@ switch(state)
 				y += 1
 			}
 			image_index = 0
-			state = PLAYER_STATE.LANDING
+			state = SLIME_STATE.LANDING
 			break;
 		}
 		y += yspd
 		x += xspd
 		break;
 	}
-	case PLAYER_STATE.LANDING:
+	case SLIME_STATE.LANDING:
 	{
 		sprite_index = sSlime_Landing
 		if(image_index >= 3)
 		{
-			state = PLAYER_STATE.IDLE
+			state = SLIME_STATE.IDLE
 			break;
 		}
 		break;
