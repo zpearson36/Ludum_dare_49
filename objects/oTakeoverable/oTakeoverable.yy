@@ -4,7 +4,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oMassive",
+    "path": "objects/oMassive/oMassive.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
