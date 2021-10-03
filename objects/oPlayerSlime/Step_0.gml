@@ -69,35 +69,44 @@ switch(state)
 	}
 	case SLIME_STATE.WALKING:
 	{
-		
+		if(!audio_is_playing(moving_sound))
+		{
+			//moving_sound = Slime1//choose(Slime1, Slime2, Slime3)
+			audio_play_sound(moving_sound, 1000000, false)
+		}
 		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
 		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
+			audio_stop_sound(moving_sound)
 			yspd = FALLINGSPEED
 			state = SLIME_STATE.FALLING
 			break;
 		}
 		if(!global.move_right and !global.move_left)
 		{
+			audio_stop_sound(moving_sound)
 			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
 		}
 		if((global.move_right and image_xscale == -1) or (global.move_left and image_xscale == 1))
 		{
+			audio_stop_sound(moving_sound)
 			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
 		}
 		if(global.move_down)
 		{
+			audio_stop_sound(moving_sound)
 			y += 4
 			state = SLIME_STATE.CROUCHEDWALKING
 			break;
 		}
 		if(global.move_jump)
 		{
+			audio_stop_sound(moving_sound)
 			state = SLIME_STATE.JUMPING;
 			image_index = 0
 			break;
@@ -113,6 +122,7 @@ switch(state)
 			{
 				x += (sign(xspd) * 1)
 			}
+			audio_stop_sound(moving_sound)
 			state = SLIME_STATE.IDLE
 			xspd = 0
 			break;
@@ -122,6 +132,7 @@ switch(state)
 	}
 	case SLIME_STATE.CROUCHING:
 	{
+		if(!audio_is_playing(crouching_sound)) audio_play_sound(crouching_sound, 100000, false)
 		if(image_index >= 3)
 		{
 			state = SLIME_STATE.CROUCHED
@@ -169,6 +180,7 @@ switch(state)
 	}
 	case SLIME_STATE.CROUCHEDWALKING:
 	{
+		if(!audio_is_playing(crouched_moving_sound)) audio_play_sound(crouched_moving_sound, 100000, false)
 		in_tight_spot = false
 		if(collision_rectangle(x - (SLIMEWIDTH / 2) + 5, y - (SLIMEHEIGHT / 2),
 		                       x + (SLIMEWIDTH / 2) - 5, y - (SLIMEHEIGHT / 2),
@@ -221,6 +233,7 @@ switch(state)
 	}
 	case SLIME_STATE.JUMPING:
 	{
+		if(!audio_is_playing(jumping_sound)) audio_play_sound(jumping_sound, 100000, false)
 		sprite_index = sSlime_Jumping
 		if(image_index >= 5)
 		{
@@ -275,6 +288,7 @@ switch(state)
 	}
 	case SLIME_STATE.SPLITTING:
 	{
+		if(!audio_is_playing(jumping_sound)) audio_play_sound(jumping_sound, 100000, false)
 		sprite_index = sSlime_Jump_Full
 		if(splits_left <= 0)
 		{
@@ -309,6 +323,7 @@ switch(state)
 	}
 	case SLIME_STATE.ABSORBING:
 	{
+		if(!audio_is_playing(absorbing_sound)) audio_play_sound(absorbing_sound, 100000, false)
 		sprite_index = sSlime_Landing
 		var tmp = collision_circle(x, y, SLIMEHEIGHT, oSlime, false, false)
 		/*remove_from_copies_list(tmp.id)

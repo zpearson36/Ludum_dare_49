@@ -25,6 +25,14 @@ xspd = 0
 yspd = 0
 can_reabsorb = false
 image_blend = c_white
+moving_sound = Slime3
+jumping_sound = Slime2//choose(Slime1, Slime2, Slime3)
+absorbing_sound = Slime6
+crouched_moving_sound = Slime4
+crouching_sound = Slime1
+
+audio_play_sound(absorbing_sound, 1000000, false)
+
 
 function switch_to_copy()
 {
