@@ -192,6 +192,7 @@ switch(state)
 		{
 			if(!global.move_right and !global.move_left)
 			{
+				audio_stop_sound(crouched_moving_sound)
 				state = SLIME_STATE.CROUCHED
 				xspd = 0
 				y -= 4
@@ -199,6 +200,7 @@ switch(state)
 			}
 			if((global.move_right and image_xscale == -1) or (global.move_left and image_xscale == 1))
 			{
+				audio_stop_sound(crouched_moving_sound)
 				state = SLIME_STATE.CROUCHED
 				xspd = 0
 				y -= 4
@@ -208,6 +210,7 @@ switch(state)
 		else
 		{
 			if(in_tight_spot) break;
+			audio_stop_sound(crouched_moving_sound)
 			state = SLIME_STATE.IDLE
 			xspd = 0
 			y -= 4
@@ -224,6 +227,7 @@ switch(state)
 			{
 				x += (sign(xspd) * 1)
 			}
+			audio_stop_sound(crouched_moving_sound)
 			state = SLIME_STATE.CROUCHED
 			xspd = 0
 			break;

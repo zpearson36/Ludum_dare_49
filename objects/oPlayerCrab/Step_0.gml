@@ -40,11 +40,13 @@ switch state
 	}
 	case CRAB_STATE.WALKING:
 	{
+		if(!audio_is_playing(Crab1)) audio_play_sound(Crab1, 100000, false)
 		//To detect ledges, begin wall climb instead of fall
 		if(!collision_rectangle(x - (CRABWIDTH / 2), y + (CRABHEIGHT / 2),
 		                        x + (CRABWIDTH / 2), y + (CRABHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
+			audio_stop_sound(Crab1)
 			image_angle -= (sign(xspd) * 90)
 			y += CRABWIDTH
 			state = CRAB_STATE.CLIMBINGWALLIDLE
@@ -56,6 +58,7 @@ switch state
 		                       x + (sign(xspd) * ((CRABWIDTH / 2) + 1)), y + (CRABHEIGHT / 2) - 5,
 			  				   oBarrier, false, false))
 		{
+			audio_stop_sound(Crab1)
 			image_angle += (sign(xspd) * 90)
 			state = CRAB_STATE.CLIMBINGWALLIDLE
 			break;
@@ -63,12 +66,14 @@ switch state
 		
 		if(!global.move_right and !global.move_left)
 		{
+			audio_stop_sound(Crab1)
 			state = CRAB_STATE.IDLE
 			xspd = 0
 			break;
 		}
 		if((global.move_right and image_xscale == -1) or (global.move_left and image_xscale == 1))
 		{
+			audio_stop_sound(Crab1)
 			state = CRAB_STATE.IDLE
 			xspd = 0
 			break;
@@ -146,7 +151,7 @@ switch state
 	}
 	case CRAB_STATE.CLIMBINGWALLWALKING:
 	{
-		
+		if(!audio_is_playing(Crab1)) audio_play_sound(Crab1, 100000, false)
 		var tmp_rot = 1
 		if(image_angle == -90 || image_angle == 270) tmp_rot = -1
 		//To detect ledges, begin ceiling climb or idle instead of fall
@@ -159,6 +164,7 @@ switch state
 			x += (tmp_rot * CRABWIDTH)
 			if(image_angle == 0)
 			{
+				audio_stop_sound(Crab1)
 				state = CRAB_STATE.FALLING
 				xspd = 0;
 				yspd = FALLINGSPEED
@@ -166,6 +172,7 @@ switch state
 			}
 			else
 			{
+				audio_stop_sound(Crab1)
 			    state = CRAB_STATE.CLIMBINGCEILINGIDLE
 				break;
 			}
@@ -182,6 +189,7 @@ switch state
 			//x += (tmp_rot * CRABWIDTH)
 			if(image_angle == 0)
 			{
+				audio_stop_sound(Crab1)
 				state = CRAB_STATE.FALLING
 				xspd = 0;
 				yspd = FALLINGSPEED
@@ -189,6 +197,7 @@ switch state
 			}
 			else
 			{
+				audio_stop_sound(Crab1)
 			    state = CRAB_STATE.CLIMBINGCEILINGIDLE
 				break
 			}
@@ -197,12 +206,14 @@ switch state
 		
 		if(!global.move_up and !global.move_down)
 		{
+			audio_stop_sound(Crab1)
 			state = CRAB_STATE.CLIMBINGWALLIDLE
 			xspd = 0
 			break;
 		}
 		if((global.move_down and image_xscale == -1) or (global.move_up and image_xscale == 1))
 		{
+			audio_stop_sound(Crab1)
 			state = CRAB_STATE.CLIMBINGWALLIDLE
 			xspd = 0
 			break;
@@ -241,11 +252,13 @@ switch state
 	}
 	case CRAB_STATE.CLIMBINGCEILINGWALKING:
 	{
+		if(!audio_is_playing(Crab1)) audio_play_sound(Crab1, 100000, false)
 		//Code to switch to wall climbing in case of ledge encounter
 		if(!collision_rectangle(x - (CRABWIDTH / 2), y - (CRABHEIGHT / 2),
 		                        x + (CRABWIDTH / 2), y - (CRABHEIGHT / 2) - 5,
 			  				    oBarrier, false, false))
 		{
+			audio_stop_sound(Crab1)
 			image_angle += (sign(xspd) * 90)
 			y -= CRABWIDTH
 			state = CRAB_STATE.CLIMBINGWALLIDLE
@@ -257,6 +270,7 @@ switch state
 		                       x + (sign(xspd) * (CRABWIDTH / 2) + 1), y + (CRABHEIGHT / 2) - 5,
 	                           oBarrier, false, false))
 		{
+			audio_stop_sound(Crab1)
 			image_angle -= (sign(xspd) * 90)
 			//y += CRABWIDTH
 			state = CRAB_STATE.CLIMBINGWALLIDLE
@@ -264,12 +278,14 @@ switch state
 		}
 		if(!global.move_left and !global.move_right)
 		{
+			audio_stop_sound(Crab1)
 			state = CRAB_STATE.CLIMBINGCEILINGIDLE
 			xspd = 0
 			break;
 		}
 		if((global.move_down and image_xscale == -1) or (global.move_up and image_xscale == 1))
 		{
+			audio_stop_sound(Crab1)
 			state = CRAB_STATE.CLIMBINGCEILINGIDLE
 			xspd = 0
 			break;
