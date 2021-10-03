@@ -60,11 +60,11 @@ switch(state)
 				break;
 			}
 		}
-		if(global.move_action2)
+		/*if(global.move_action2)
 		{
 			switch_to_copy()
 			break;
-		}
+		}*/
 		break;
 	}
 	case SLIME_STATE.WALKING:
