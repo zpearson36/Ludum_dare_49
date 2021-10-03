@@ -45,7 +45,6 @@ switch state
 		                        x + (CRABWIDTH / 2), y + (CRABHEIGHT / 2) + 1,
 			  				    oBarrier, false, false))
 		{
-			show_debug_message("Ledge")
 			image_angle -= (sign(xspd) * 90)
 			y += CRABWIDTH
 			state = CRAB_STATE.CLIMBINGWALLIDLE
@@ -57,7 +56,6 @@ switch state
 		                       x + (sign(xspd) * ((CRABWIDTH / 2) + 1)), y + (CRABHEIGHT / 2) - 5,
 			  				   oBarrier, false, false))
 		{
-			show_debug_message("WALL")
 			image_angle += (sign(xspd) * 90)
 			state = CRAB_STATE.CLIMBINGWALLIDLE
 			break;
@@ -109,7 +107,6 @@ switch state
 					tmp = false
 				}
 			}
-			show_debug_message(yspd)
 			image_index = 0
 			state = CRAB_STATE.IDLE
 			break;
@@ -162,7 +159,6 @@ switch state
 			x += (tmp_rot * CRABWIDTH)
 			if(image_angle == 0)
 			{
-				show_debug_message(1)
 				state = CRAB_STATE.FALLING
 				xspd = 0;
 				yspd = FALLINGSPEED
@@ -186,7 +182,6 @@ switch state
 			//x += (tmp_rot * CRABWIDTH)
 			if(image_angle == 0)
 			{
-				show_debug_message(2)
 				state = CRAB_STATE.FALLING
 				xspd = 0;
 				yspd = FALLINGSPEED

@@ -28,6 +28,10 @@ if(keyboard_check_pressed(vk_space))
 {
 	global.move_action = true
 }
+if(keyboard_check_pressed(vk_tab))
+{
+	global.move_action2 = true
+}
 if(keyboard_check(ord("Q")))
 {
     global.move_leave  = true

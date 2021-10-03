@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"sSlime_Idle","path":"sprites/sSlime_Idle/sSlime_Idle.yy",},"order":2,},
     {"id":{"name":"oCrab","path":"objects/oCrab/oCrab.yy",},"order":2,},
+    {"id":{"name":"oUtils","path":"objects/oUtils/oUtils.yy",},"order":8,},
     {"id":{"name":"sBarrier","path":"sprites/sBarrier/sBarrier.yy",},"order":1,},
     {"id":{"name":"LevelAssets16x16","path":"tilesets/LevelAssets16x16/LevelAssets16x16.yy",},"order":1,},
     {"id":{"name":"oBarrier","path":"objects/oBarrier/oBarrier.yy",},"order":5,},

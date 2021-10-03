@@ -42,7 +42,6 @@ switch state
 					tmp = false
 				}
 			}
-			show_debug_message(yspd)
 			image_index = 0
 			state = CRAB_STATE.IDLE
 			break;

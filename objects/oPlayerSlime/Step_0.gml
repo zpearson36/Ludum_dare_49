@@ -60,6 +60,11 @@ switch(state)
 				break;
 			}
 		}
+		if(global.move_action2)
+		{
+			switch_to_copy()
+			break;
+		}
 		break;
 	}
 	case SLIME_STATE.WALKING:
@@ -117,8 +122,6 @@ switch(state)
 	}
 	case SLIME_STATE.CROUCHING:
 	{
-		
-		show_debug_message(image_index)
 		if(image_index >= 3)
 		{
 			state = SLIME_STATE.CROUCHED
@@ -281,7 +284,13 @@ switch(state)
 		if(image_index >= 4)
 		{
 			var tmp = instance_create_layer(x, y - 17, layer, oSlime)
-			array_push(copies, tmp)
+			for(var i = 0; i < ds_list_size(copies); i++)
+			{
+				tmp.copies[| i] = copies[| i]
+			}
+			ds_list_add(tmp.copies, self)
+			ds_list_add(copies, tmp)
+			tmp.slime_index = ds_list_size(copies)
 			splits_left -= 1
 			tmp.splits_left = 0
 			state = SLIME_STATE.SPLITFINISH
@@ -301,7 +310,13 @@ switch(state)
 	case SLIME_STATE.ABSORBING:
 	{
 		sprite_index = sSlime_Landing
-		instance_destroy(collision_circle(x, y, SLIMEHEIGHT, oSlime, false, false))
+		var tmp = collision_circle(x, y, SLIMEHEIGHT, oSlime, false, false)
+		remove_from_copies_list(tmp.id)
+		for(var i =0; i < ds_list_size(copies); i++)
+		{
+			copies[| i].remove_from_copies_list(tmp)
+		}
+		instance_destroy(tmp)
 		splits_left += 1
 		state = SLIME_STATE.ABSORBED
 		break;
@@ -313,3 +328,4 @@ switch(state)
 	}
 	
 }
+show_debug_message(slime_index)
