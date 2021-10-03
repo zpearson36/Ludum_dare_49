@@ -311,11 +311,11 @@ switch(state)
 	{
 		sprite_index = sSlime_Landing
 		var tmp = collision_circle(x, y, SLIMEHEIGHT, oSlime, false, false)
-		remove_from_copies_list(tmp.id)
+		/*remove_from_copies_list(tmp.id)
 		for(var i =0; i < ds_list_size(copies); i++)
 		{
 			copies[| i].remove_from_copies_list(tmp)
-		}
+		}*/
 		instance_destroy(tmp)
 		splits_left += 1
 		state = SLIME_STATE.ABSORBED
