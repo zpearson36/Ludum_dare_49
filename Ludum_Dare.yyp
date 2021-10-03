@@ -37,6 +37,7 @@
     {"id":{"name":"fMainMenu","path":"fonts/fMainMenu/fMainMenu.yy",},"order":0,},
     {"id":{"name":"BGMusic2","path":"sounds/BGMusic2/BGMusic2.yy",},"order":7,},
     {"id":{"name":"oTakeoverable","path":"objects/oTakeoverable/oTakeoverable.yy",},"order":0,},
+    {"id":{"name":"DoorSliding","path":"sounds/DoorSliding/DoorSliding.yy",},"order":11,},
     {"id":{"name":"sEmpty","path":"sprites/sEmpty/sEmpty.yy",},"order":0,},
     {"id":{"name":"Macros","path":"scripts/Macros/Macros.yy",},"order":0,},
     {"id":{"name":"oPlayerSmoke","path":"objects/oPlayerSmoke/oPlayerSmoke.yy",},"order":3,},
