@@ -45,6 +45,21 @@ switch(state)
 			image_index = 0
 			break;
 		}
+		if(global.move_action)
+		{
+			if(can_reabsorb)
+			{
+				state = SLIME_STATE.ABSORBING
+				image_index = 0
+				break;
+			}
+			else
+			{
+				state = SLIME_STATE.SPLITTING
+				image_index = 0
+				break;
+			}
+		}
 		break;
 	}
 	case SLIME_STATE.WALKING:
@@ -255,4 +270,46 @@ switch(state)
 		}
 		break;
 	}
+	case SLIME_STATE.SPLITTING:
+	{
+		sprite_index = sSlime_Jump_Full
+		if(splits_left <= 0)
+		{
+			state = SLIME_STATE.SPLITFINISH
+			break;
+		}
+		if(image_index >= 4)
+		{
+			var tmp = instance_create_layer(x, y - 17, layer, oSlime)
+			array_push(copies, tmp)
+			splits_left -= 1
+			tmp.splits_left = 0
+			state = SLIME_STATE.SPLITFINISH
+			break;
+		}
+		break;
+	}
+	case SLIME_STATE.SPLITFINISH:
+	{
+		if(image_index >= 10)
+		{
+			state = SLIME_STATE.IDLE
+			break
+		}
+		break;
+	}
+	case SLIME_STATE.ABSORBING:
+	{
+		sprite_index = sSlime_Landing
+		instance_destroy(collision_circle(x, y, SLIMEHEIGHT, oSlime, false, false))
+		splits_left += 1
+		state = SLIME_STATE.ABSORBED
+		break;
+	}
+	case SLIME_STATE.ABSORBED:
+	{
+		if(image_index >= 4) state = SLIME_STATE.IDLE
+		break;
+	}
+	
 }

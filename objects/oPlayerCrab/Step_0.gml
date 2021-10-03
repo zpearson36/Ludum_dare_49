@@ -120,6 +120,10 @@ switch state
 	}
 	case CRAB_STATE.CLIMBINGWALLIDLE:
 	{
+		if(global.move_leave)
+		{
+			oPlayer.leave_form()
+		}
 		if(global.move_jump)
 		{
 			image_angle = 0
@@ -213,6 +217,10 @@ switch state
 	}
 	case CRAB_STATE.CLIMBINGCEILINGIDLE:
 	{
+		if(global.move_leave)
+		{
+			oPlayer.leave_form()
+		}
 		if(global.move_jump)
 		{
 			image_angle = 0

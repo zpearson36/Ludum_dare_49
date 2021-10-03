@@ -25,6 +25,7 @@
     {"id":{"name":"sSlime_Crouch","path":"sprites/sSlime_Crouch/sSlime_Crouch.yy",},"order":4,},
     {"id":{"name":"sSlime_Jumping","path":"sprites/sSlime_Jumping/sSlime_Jumping.yy",},"order":5,},
     {"id":{"name":"sSlime_Landing","path":"sprites/sSlime_Landing/sSlime_Landing.yy",},"order":7,},
+    {"id":{"name":"sSlime_Jump_Full","path":"sprites/sSlime_Jump_Full/sSlime_Jump_Full.yy",},"order":8,},
     {"id":{"name":"sCrab_Walking","path":"sprites/sCrab_Walking/sCrab_Walking.yy",},"order":0,},
     {"id":{"name":"sSlime_Crouched","path":"sprites/sSlime_Crouched/sSlime_Crouched.yy",},"order":0,},
     {"id":{"name":"sSentientSmoke","path":"sprites/sSentientSmoke/sSentientSmoke.yy",},"order":6,},

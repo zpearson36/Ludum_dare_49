@@ -24,7 +24,7 @@ if(keyboard_check(vk_shift))
 {
 	global.move_jump = true
 }
-if(keyboard_check(vk_space))
+if(keyboard_check_pressed(vk_space))
 {
 	global.move_action = true
 }
