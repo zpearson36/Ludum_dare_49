@@ -94,3 +94,31 @@ switch state
 		y += yspd
 	}
 }
+
+if(collision_rectangle(x + (sign(xspd_offset) * (SMOKEWIDTH / 2)), y - (SMOKEWIDTH / 2),
+		               x + (sign(xspd_offset) * (SMOKEWIDTH / 2)) + xspd_offset, y + (SMOKEWIDTH / 2),
+			  		   oBarrier, false, false))
+{
+	while(!collision_rectangle(x + (sign(xspd_offset) * (SMOKEWIDTH / 2)), y - (SMOKEWIDTH / 2),
+		                       x + (sign(xspd_offset) * (SMOKEWIDTH / 2) + 1), y + (SMOKEWIDTH / 2),
+							   oBarrier, false, false))
+	{
+		x += (sign(xspd_offset) * 1)
+	}
+	xspd_offset = 0
+}
+x += xspd_offset
+
+if(collision_rectangle(x - (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2),
+		                       x + (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2) + yspd_offset,
+							   oBarrier, false, false))
+{
+	while(!collision_rectangle(x - (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2),
+		                        x + (SMOKEWIDTH / 2), y + (SMOKEWIDTH / 2) + 1,
+							    oBarrier, false, false))
+	{
+		y += 1
+	}
+	yspd_offset = 0
+}
+y += yspd_offset

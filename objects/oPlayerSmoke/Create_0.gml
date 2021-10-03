@@ -5,7 +5,7 @@ enum SMOKESTATES
 	IDLE   = 0,
 	MOVING = 1
 }
-
+coef = 0
 enum DIRECTIONS
 {
 	MOTIONLESS,
@@ -18,6 +18,8 @@ enum DIRECTIONS
 state = SMOKESTATES.IDLE
 xspd = 0
 yspd = 0
+xspd_offset = 0
+yspd_offset = 0
 c_color = c_yellow
 current_direction = DIRECTIONS.MOTIONLESS
 takeoverable = noone

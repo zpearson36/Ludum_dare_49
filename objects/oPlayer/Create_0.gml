@@ -3,7 +3,7 @@
 form = instance_create_layer(x, y, layer, oPlayerSmoke)
 is_smoke = true
 
-
+coef = 0
 function new_form(nf)
 {
 	var tmp = form
