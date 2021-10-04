@@ -21,19 +21,19 @@ menu_committed = -1;
 menu_control = true;
 
 menu[0] = instance_create_layer(menu_x - 150, menu_y - menu_itemheight * (0 * 1.5), layer, oMainMenuButton)
-menu[1] = instance_create_layer(menu_x - 150, menu_y - menu_itemheight * (1 * 1.5), layer, oMainMenuButton)
-menu[2] = instance_create_layer(menu_x - 150, menu_y - menu_itemheight * (2 * 1.5), layer, oMainMenuButton)
-menu[3] = instance_create_layer(menu_x - 150, menu_y - menu_itemheight * (3 * 1.5), layer, oMainMenuButton)
+//menu[1] = instance_create_layer(menu_x - 150, menu_y - menu_itemheight * (1 * 1.5), layer, oMainMenuButton)
+//menu[2] = instance_create_layer(menu_x - 150, menu_y - menu_itemheight * (2 * 1.5), layer, oMainMenuButton)
+menu[1] = instance_create_layer(menu_x - 150, menu_y - menu_itemheight * (3 * 1.5), layer, oMainMenuButton)
 
-menu[3].txt = "New Game"
-menu[2].txt = "Controls"
-menu[1].txt = "Credits"
+menu[1].txt = "New Game"
+//menu[2].txt = "Controls"
+//menu[1].txt = "Credits"
 menu[0].txt = "Quit"
 
 menu[0].action = function(){game_end()}
-menu[1].action = function(){}
-menu[2].action = function(){}
-menu[3].action = function(){audio_stop_sound(BGMusic); room_goto(LevelOne)}
+//menu[1].action = function(){}
+//menu[2].action = function(){}
+menu[1].action = function(){audio_stop_sound(BGMusic); room_goto(LevelOne)}
 
 menu_items = array_length_1d(menu)
-menu_cursor = 3
+menu_cursor = menu_items - 1
