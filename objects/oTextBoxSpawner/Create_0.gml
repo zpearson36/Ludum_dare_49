@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-pressed = false
-c_sprite = sUnpressed
+text_list = []
 
-text_box_spawner = noone
+function add_text(str)
+{
+	array_push(text_list, str)
+}

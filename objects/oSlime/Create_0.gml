@@ -8,6 +8,7 @@ copies = ds_list_create()
 xspd = 0
 yspd = 0
 
+text_box_spawner = noone
 
 function to_player_slime(prev_slime)
 {

@@ -25,7 +25,7 @@ if(keyboard_check(vk_down)
 {
 	global.move_down = true
 }
-if(keyboard_check(vk_shift)
+if(keyboard_check_pressed(vk_shift)
    or gamepad_button_check(0,gp_face1))
 {
 	global.move_jump = true

@@ -4,3 +4,5 @@ player_body = oPlayerCrab
 state = CRAB_STATE.IDLE
 xspd = 0
 yspd = 0
+
+text_box_spawner = noone
