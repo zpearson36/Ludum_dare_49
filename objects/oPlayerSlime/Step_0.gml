@@ -112,8 +112,8 @@ switch(state)
 			break;
 		}
 		sprite_index = sSlime_Walk
-		if(collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2),
-		                       x + (sign(xspd) * (SLIMEWIDTH / 2)) + xspd, y + (SLIMEHEIGHT / 2),
+		if(collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2) + 5,
+		                       x + (sign(xspd) * (SLIMEWIDTH / 2)) + xspd, y + (SLIMEHEIGHT / 2) - 5,
 			  				   oBarrier, false, false))
 		{
 			while(!collision_rectangle(x + (sign(xspd) * (SLIMEWIDTH / 2)), y - (SLIMEHEIGHT / 2),
@@ -217,8 +217,8 @@ switch(state)
 			break;
 		}
 		sprite_index = sSlime_CrouchWalk
-		if(collision_rectangle(x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)), y - (CROUCHEDSLIMEHEIGHT / 2),
-		                       x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)) + xspd, y + (CROUCHEDSLIMEHEIGHT / 2),
+		if(collision_rectangle(x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)), y - (CROUCHEDSLIMEHEIGHT / 2) + 5,
+		                       x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)) + xspd, y + (CROUCHEDSLIMEHEIGHT / 2) - 5,
 			  				   oBarrier, false, false))
 		{
 			while(!collision_rectangle(x + (sign(xspd) * (CROUCHEDSLIMEWIDTH / 2)), y - (CROUCHEDSLIMEHEIGHT / 2),

@@ -19,7 +19,7 @@ if(!collision_rectangle(x + (sign(xspd) * (SMOKEWIDTH / 2)), y - (SMOKEWIDTH / 2
 {
    just_created = false
 }
-xspd_offset = sin(coef * pi)
-yspd_offset = cos(2 * coef * pi)
+xspd_offset = sin(coef * pi) / 5
+yspd_offset = cos(2 * coef * pi) / 5
 coef += .01
 if(coef >= 2) coef = 0

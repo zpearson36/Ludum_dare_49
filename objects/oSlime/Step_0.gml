@@ -5,8 +5,8 @@ switch(state)
 	case SLIME_STATE.IDLE:
 	{
 		sprite_index = sSlime_Idle
-		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2),
-		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 1,
+		if(!collision_rectangle(x - (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) - 10,
+		                        x + (SLIMEWIDTH / 2), y + (SLIMEHEIGHT / 2) + 10,
 			  				    oBarrier, false, false))
 		{
 			yspd = FALLINGSPEED

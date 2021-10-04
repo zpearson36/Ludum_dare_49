@@ -1,5 +1,4 @@
 {
-  "name": "LevelAssets16x16",
   "spriteId": {
     "name": "Sprite8",
     "path": "sprites/Sprite8/Sprite8.yy",
@@ -3257,6 +3256,7 @@
     "path": "folders/Tile Sets.yy",
   },
   "resourceVersion": "1.0",
+  "name": "LevelAssets16x16",
   "tags": [],
   "resourceType": "GMTileSet",
 }
