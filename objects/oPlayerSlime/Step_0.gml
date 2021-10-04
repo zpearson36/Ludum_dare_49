@@ -4,7 +4,7 @@ switch(state)
 {
 	case SLIME_STATE.IDLE:
 	{
-		if(global.move_leave)
+		if(global.move_action2)
 		{
 			oPlayer.leave_form()
 		}
@@ -60,7 +60,7 @@ switch(state)
 				break;
 			}
 		}
-		/*if(global.move_action2)
+		/*if(global.move_takeover)
 		{
 			switch_to_copy()
 			break;

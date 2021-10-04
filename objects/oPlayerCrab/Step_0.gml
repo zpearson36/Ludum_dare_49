@@ -7,7 +7,7 @@ switch state
 {
 	case CRAB_STATE.IDLE:
 	{
-		if(global.move_leave)
+		if(global.move_action2)
 		{
 			oPlayer.leave_form()
 		}
@@ -122,7 +122,14 @@ switch state
 	}
 	case CRAB_STATE.CLIMBINGWALLIDLE:
 	{
-		if(global.move_leave)
+		if((global.move_left  and global.move_up)
+		or (global.move_left  and global.move_down)
+		or (global.move_right and global.move_up)
+		or (global.move_right and global.move_down))
+		{
+			break;
+		}
+		if(global.move_action2)
 		{
 			oPlayer.leave_form()
 		}
@@ -223,7 +230,7 @@ switch state
 	}
 	case CRAB_STATE.CLIMBINGCEILINGIDLE:
 	{
-		if(global.move_leave)
+		if(global.move_action2)
 		{
 			oPlayer.leave_form()
 		}
