@@ -12,7 +12,7 @@ if(height > 0)
 		}
 		
 		raised += 1
-		//audio_play_sound(DoorSliding, 100000, false)
+		audio_play_sound(DoorSliding, 100000, false)
 	}
 	if(!ok_to_move and raised > 0)
 	{
@@ -22,7 +22,7 @@ if(height > 0)
 		}
 		y += 1
 		raised -= 1
-		//audio_play_sound(DoorSliding, 100000, false)
+		audio_play_sound(DoorSliding, 100000, false)
 	}
 }
 if(distance > 0)
@@ -35,7 +35,7 @@ if(distance > 0)
 		}
 		x += 1 * sign(distance)
 		moved += 1
-		//audio_play_sound(DoorSliding, 100000, false)
+		audio_play_sound(DoorSliding, 100000, false)
 	}
 	if(!ok_to_move and moved > 0)
 	{
@@ -45,6 +45,6 @@ if(distance > 0)
 		}
 		x -= 1 * sign(distance)
 		moved -= 1 * sign(distance)
-		//audio_play_sound(DoorSliding, 100000, false)
+		audio_play_sound(DoorSliding, 100000, false)
 	}
 }
