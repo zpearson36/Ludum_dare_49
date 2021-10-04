@@ -3,6 +3,7 @@
 /*mapBtns = []
 array_push(mapBtns, instance_create_depth(x, y, -5000, oMainMenuButton))
 mapBtns[0].txt = "BITCHES"*/
+if(audio_is_playing(BGMusic2)) audio_stop_sound(BGMusic2)
 audio_play_sound(BGMusic, 10000000, true)
 menu_surface = surface_create(1, 1)
 
