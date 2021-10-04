@@ -40,3 +40,7 @@ if(keyboard_check(ord("R")))
 {
 	game_restart()
 }
+if(keyboard_check(vk_enter))
+{
+	global.move_select = true
+}

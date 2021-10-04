@@ -8,3 +8,4 @@ global.move_jump    = false
 global.move_action  = false
 global.move_action2 = false
 global.move_leave   = false
+global.move_select  = false
