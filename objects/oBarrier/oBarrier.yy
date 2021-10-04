@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Environment",
-    "path": "folders/Objects/Environment.yy",
+    "name": "Abstract",
+    "path": "folders/Objects/Abstract.yy",
   },
   "resourceVersion": "1.0",
   "name": "oBarrier",

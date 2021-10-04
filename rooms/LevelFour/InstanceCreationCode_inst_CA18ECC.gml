@@ -1,2 +1,2 @@
 height = 160
-light_list = [inst_8752F87, inst_1A62A98]
+light_list = [inst_51B72A46]

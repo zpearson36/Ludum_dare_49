@@ -44,7 +44,7 @@ if(distance > 0)
 			riding_list[i].x -= 1 * sign(distance)
 		}
 		x -= 1 * sign(distance)
-		moved += 1
+		moved -= 1 * sign(distance)
 		//audio_play_sound(DoorSliding, 100000, false)
 	}
 }

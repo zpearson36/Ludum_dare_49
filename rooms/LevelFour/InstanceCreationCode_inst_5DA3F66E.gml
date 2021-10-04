@@ -1,1 +1,0 @@
-light_list = [inst_4E6A35A7]
